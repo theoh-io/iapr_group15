@@ -1,5 +1,6 @@
 *.DS_Store
 data/
+project/data_project/
 # Created by https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks,linux,pycharm+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,jupyternotebooks,linux,pycharm+all
 
