@@ -76,7 +76,7 @@ def main(data_dir, out_dir):
         for pieces in clusters.values():
             try:
                 puzzle = Puzzle(pieces)
-                puzzle.solve(crop=4)
+                puzzle.solve(crop=2)
                 puzzle.assemble()
                 SOLVED_PUZZLES.append(puzzle.data)
             except:
