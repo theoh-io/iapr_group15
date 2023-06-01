@@ -8,7 +8,7 @@ from skimage.feature import canny
 from skimage.feature import local_binary_pattern
 
 
-EPSYLON=0.001
+EPSYLON = 0.001
 
 
 def extract_features(image, use_gabor=True, use_lbp=False):
