@@ -60,16 +60,20 @@ def main(data_dir, out_dir):
         for i, label in enumerate(labels):
             pieces[i].label = label
         
-        clusters = [[] for _ in set(labels)]
-        CLUSTERS_DATA = [[] for _ in set(labels)]
+        clusters = {label:[] for label in set(labels)}
+        clusters_data = {label:[] for label in set(labels)}
         for piece in pieces:
             clusters[piece.label].append(piece)
-            CLUSTERS_DATA[piece.label].append(piece.data)
+            clusters_data[piece.label].append(piece.data)
+        
+        CLUSTERS_DATA = [clusters_data[label] for label in clusters_data.keys() if label != -1]
+        if -1 in clusters_data.keys():
+            CLUSTERS_DATA.append(clusters_data[-1])
         
         # Solve the puzzles
         SOLVED_PUZZLES = []
         print('Solving the puzzles ...')
-        for pieces in clusters[:-1]:
+        for pieces in clusters.values():
             try:
                 puzzle = Puzzle(pieces)
                 puzzle.solve(crop=4)
