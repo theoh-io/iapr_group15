@@ -3,6 +3,20 @@ import numpy as np
 from .piece import Piece
 
 
+class Solution:
+    def __init__(self, img_idx, mask=None, feature_map=None, valid_clusters=None, outliers=None, solved_puzzles=None):
+        self.img_idx = img_idx
+        self.mask = mask
+        self.feature_map = feature_map
+        self.valid_clusters = valid_clusters
+        self.outliers = outliers
+        self.solved_puzzles = solved_puzzles
+    
+    def export_solution(self):
+        clusters = [self.valid_clusters, self.outliers]
+        return self.img_idx, [self.mask, self.feature_map, self.clusters, self.solved_puzzles]
+
+
 def get_rectangles(img, segmented, height=128, width=128):
     # Find contours
     contours = cv2.findContours(segmented, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)

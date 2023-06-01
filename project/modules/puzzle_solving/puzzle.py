@@ -84,8 +84,8 @@ class Puzzle:
         self.graph = undirected_graph
         return undirected_graph
     
-    def solve(self):
-        self.init_affinities()
+    def solve(self, crop=None):
+        self.init_affinities(crop=crop)
         G = self.get_undirected_graph()
 
         if self.size == (3, 3):
